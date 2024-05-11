@@ -1,5 +1,5 @@
-import { createReadQuery } from '@/utils/graphql';
+import { createReadQueryClient } from '@/utils/graphql';
 
-export const pokemonApiClient = createReadQuery(
+export const pokemonApiClient = createReadQueryClient(
   `https://beta.pokeapi.co/graphql/v1beta`,
 );

@@ -4,7 +4,7 @@
  * @returns {object} The requested data.
  * @todo replace with proper graph-ql library.
  */
-export function createReadQuery(endpoint: string) {
+export function createReadQueryClient(endpoint: string) {
   return async function query<Data>(query: string): Promise<Data> {
     const headers = new Headers([
       ['Accept', 'application/json'],
