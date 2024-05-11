@@ -1,0 +1,11 @@
+.tag {
+  color: hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 80%, 90%);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1;
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.25em 0.5em 0.4em;
+  border-radius: 0.4em;
+}

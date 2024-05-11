@@ -1,0 +1,17 @@
+.wrapper {
+  background-color: var(--pokemon-type-main, silver);
+  color: white;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+.subheading {
+  color: hsl(var(--pokemon-type-hue), 30%, 30%);
+}

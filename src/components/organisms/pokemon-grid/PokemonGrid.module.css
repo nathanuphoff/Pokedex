@@ -35,6 +35,6 @@
   outline: none;
 }
 
-.item:focus .fx {
+.item:focus-visible .fx {
   outline: 2px solid;
 }

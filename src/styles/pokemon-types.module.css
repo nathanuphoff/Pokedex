@@ -44,7 +44,7 @@
 
 .ice {
   --pokemon-type-hue: 190;
-  --pokemon-type-main: hsl(var(--pokemon-type-hue), 90%, 70%);
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 60%, 70%);
 }
 
 .flying {
@@ -60,6 +60,11 @@
 .water {
   --pokemon-type-hue: 220;
   --pokemon-type-main: hsl(var(--pokemon-type-hue), 80%, 60%);
+}
+
+.dragon {
+  --pokemon-type-hue: 240;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 40%, 70%);
 }
 
 .psychic {

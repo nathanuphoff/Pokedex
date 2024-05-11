@@ -16,8 +16,6 @@ export function PageSection({
   className,
 }: PageSectionProps): ReactElement {
   return (
-    <Tag className={classNames(className)}>
-      <div className={styles.wrapper}>{children}</div>
-    </Tag>
+    <Tag className={classNames(styles.section, className)}>{children}</Tag>
   );
 }

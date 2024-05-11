@@ -2,13 +2,13 @@ import { PokemonImage } from '@/components/atoms/pokemon-image/PokemonImage';
 import { Grid } from '@/components/layout/grid/Grid';
 import { RoutePath } from '@/data/route-path';
 import { BasePokemonEntry } from '@/services/pokeapi';
+import colorVariables from '@/styles/pokemon-types.module.css';
 import { formatApiResourceName } from '@/utils/formatting';
 import { formatRoutePath } from '@/utils/router';
 import classNames from 'classnames';
 import Link from 'next/link';
 import type { ReactElement } from 'react';
 import styles from './PokemonGrid.module.css';
-import pokemonTypeStyles from '@/styles/pokemon-types.module.css';
 
 const pokemonGridItemWidth = 192;
 
@@ -25,7 +25,7 @@ export function PokemonGrid({ pokemon }: PokemonGridProps): ReactElement {
         return (
           <Link
             key={item.id}
-            className={classNames(styles.item, type && pokemonTypeStyles[type])}
+            className={classNames(styles.item, type && colorVariables[type])}
             title={`View details for ${name}`}
             href={formatRoutePath(RoutePath.PokemonDetail, {
               slug: item.name,

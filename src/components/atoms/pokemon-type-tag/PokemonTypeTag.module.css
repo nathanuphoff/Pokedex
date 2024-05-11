@@ -1,0 +1,4 @@
+.tag {
+  background-color: hsl(var(--pokemon-type-hue), 60%, 40%);
+  color: white;
+}
