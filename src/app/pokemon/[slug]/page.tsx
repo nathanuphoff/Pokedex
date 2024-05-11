@@ -1,4 +1,4 @@
-import { findPokemonDetailsByName } from '@/services/pokeapi';
+import { findBasePokemonByName } from '@/services/pokeapi';
 import { ReactElement } from 'react';
 
 type PokemonDetailParams = {
@@ -12,7 +12,7 @@ type PokemonDetailProps = {
 export default async function PokemonDetail({
   params,
 }: PokemonDetailProps): Promise<ReactElement> {
-  const { order, name, types } = await findPokemonDetailsByName(params.slug);
+  const { order, name, types } = await findBasePokemonByName(params.slug);
   return (
     <header>
       <h2>#{order}</h2>

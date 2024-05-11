@@ -1,31 +1,14 @@
-import { RoutePath } from '@/data/route-path';
-import { getPokemonCollection } from '@/services/pokeapi/getPokemonCollection';
-import { formatRoutePath } from '@/utils/router';
-import Link from 'next/link';
-import { ReactElement } from 'react';
+import { PageSection } from '@/components/layout/page-section/PageSection';
+import { PokemonGrid } from '@/components/organisms/pokemon-grid/PokemonGrid';
+import { getBasePokemonCollection } from '@/services/pokeapi/getPokemonCollection';
+import type { ReactElement } from 'react';
 
 export default async function PokemonIndex(): Promise<ReactElement> {
-  const { pokemon } = await getPokemonCollection();
+  const { pokemon } = await getBasePokemonCollection();
 
   return (
-    <>
-      <ul>
-        {pokemon.map((item) => {
-          const name = item.name;
-          return (
-            <li key={item.id}>
-              <Link
-                title={`View details for ${name}`}
-                href={formatRoutePath(RoutePath.PokemonDetail, {
-                  slug: item.name,
-                })}
-              >
-                {name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </>
+    <PageSection>
+      <PokemonGrid pokemon={pokemon} />
+    </PageSection>
   );
 }

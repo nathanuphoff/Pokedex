@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--column-width), auto));
+  gap: 3rem 2rem;
+  justify-content: center;
+}
+
+.item {
+  list-style: none;
+  width: fit-content;
+}
+

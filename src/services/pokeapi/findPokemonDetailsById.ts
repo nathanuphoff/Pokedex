@@ -1,24 +1,13 @@
 import { pokemonApiClient } from './client';
+import { BasePokemonEntry } from './types';
 
 type PokemonDetailsData = {
-  matches: Array<PokemonDetailsEntry>;
+  matches: Array<BasePokemonEntry>;
 };
 
-export type PokemonDetailsEntry = {
-  id: string;
-  name: string;
-  order: number;
-  types: Array<{
-    type: {
-      id: string;
-      name: string;
-    };
-  }>;
-};
-
-export async function findPokemonDetailsByName(
+export async function findBasePokemonByName(
   name: string,
-): Promise<PokemonDetailsEntry> {
+): Promise<BasePokemonEntry> {
   const { matches } = await pokemonApiClient<PokemonDetailsData>(`{
     matches: pokemon_v2_pokemon(limit: 1, where: {name: {_eq: ${name}}}) {
       id
@@ -30,10 +19,11 @@ export async function findPokemonDetailsByName(
           name
         }
       }
+      sprites: pokemon_v2_pokemonsprites {
+        frontDefault: sprites(path: "front_default")
+      }
     }
   }`);
-
-  console.log('x', matches);
 
   const [pokemonByName] = matches;
 

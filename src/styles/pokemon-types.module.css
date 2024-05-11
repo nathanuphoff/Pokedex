@@ -1,0 +1,88 @@
+/* Pokemon types colors sorted by hue */
+
+.normal {
+  --pokemon-type-hue: 30;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 20%, 80%);
+}
+
+.fire {
+  --pokemon-type-hue: 5;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 80%, 50%);
+}
+
+.rock {
+  --pokemon-type-hue: 15;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 50%, 50%);
+}
+
+.fighting {
+  --pokemon-type-hue: 20;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 80%, 50%);
+}
+
+.ground {
+  --pokemon-type-hue: 25;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 50%, 50%);
+}
+
+.electric {
+  --pokemon-type-hue: 45;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 100%, 60%);
+
+}
+
+.bug {
+  --pokemon-type-hue: 60;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 70%, 60%);
+}
+
+
+.grass {
+  --pokemon-type-hue: 140;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 50%, 60%);
+}
+
+.ice {
+  --pokemon-type-hue: 190;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 90%, 70%);
+}
+
+.flying {
+  --pokemon-type-hue: 200;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 80%, 60%);
+}
+
+.steel {
+  --pokemon-type-hue: 210;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 30%, 60%);
+}
+
+.water {
+  --pokemon-type-hue: 220;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 80%, 60%);
+}
+
+.psychic {
+  --pokemon-type-hue: 270;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 40%, 60%);
+}
+
+.ghost {
+  --pokemon-type-hue: 280;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 40%, 60%);
+}
+
+.poison {
+  --pokemon-type-hue: 310;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 40%, 60%);
+}
+
+.dark {
+  --pokemon-type-hue: 320;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 10%, 50%);
+}
+
+.fairy {
+  --pokemon-type-hue: 340;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 60%, 70%);
+}

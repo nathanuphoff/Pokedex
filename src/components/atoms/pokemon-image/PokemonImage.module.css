@@ -1,0 +1,13 @@
+.wrapper {
+  aspect-ratio: 1;
+  max-inline-size: 100%;
+  inline-size: fit-content;
+}
+
+.image {
+  display: block;
+  image-rendering: pixelated;
+  object-fit: contain;
+  max-block-size: 100%;
+  max-inline-size: 100%;
+}
