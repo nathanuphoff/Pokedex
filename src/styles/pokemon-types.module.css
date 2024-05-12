@@ -2,7 +2,7 @@
 
 .normal {
   --pokemon-type-hue: 30;
-  --pokemon-type-main: hsl(var(--pokemon-type-hue), 20%, 80%);
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 20%, 60%);
 }
 
 .fire {
@@ -32,10 +32,9 @@
 }
 
 .bug {
-  --pokemon-type-hue: 60;
-  --pokemon-type-main: hsl(var(--pokemon-type-hue), 70%, 60%);
+  --pokemon-type-hue: 70;
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 70%, 50%);
 }
-
 
 .grass {
   --pokemon-type-hue: 140;
@@ -44,7 +43,7 @@
 
 .ice {
   --pokemon-type-hue: 190;
-  --pokemon-type-main: hsl(var(--pokemon-type-hue), 60%, 70%);
+  --pokemon-type-main: hsl(var(--pokemon-type-hue), 60%, 60%);
 }
 
 .flying {

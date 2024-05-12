@@ -9,7 +9,7 @@ export async function findPokemonSummaryByName(
   name: string,
 ): Promise<PokemonSummary> {
   const { matches = [] } = await pokemonApiClient<PokemonDetailsData>(`{
-    matches: pokemon_v2_pokemon(limit: 1, where: {name: {_eq: ${name}}}) {
+    matches: pokemon_v2_pokemon(limit: 1, where: {name: {_eq: "${name}"}}) {
       id
       name
       order

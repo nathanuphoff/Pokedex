@@ -1,11 +1,11 @@
-import { PokemonSummary } from '.';
+import { PokemonResourceIdentifier, PokemonSummary } from '.';
 import { pokemonApiClient } from './client';
-
-export const defaultPokemonCollectionLimit = 151;
+import { defaultPokemonCollectionLimit } from './constants';
 
 export type PokemonCollectionParams = {
   limit?: number;
   offset?: number;
+  type?: PokemonResourceIdentifier;
 };
 
 export type BasePokemonCollectionData = {
@@ -15,9 +15,27 @@ export type BasePokemonCollectionData = {
 export async function getPokemonSummaryCollection({
   limit = defaultPokemonCollectionLimit,
   offset = 0,
+  type,
 }: PokemonCollectionParams = {}) {
+  const whereQueryParams = [
+    // Abuse id range to only get Pokémon from the 1st generation
+    `id: {_gt: 0, _lte: ${defaultPokemonCollectionLimit}}`,
+  ];
+
+  if (type) {
+    whereQueryParams.push(
+      `pokemon_v2_pokemontypes: {pokemon_v2_type: {id: {_eq: ${type.id}}}}`,
+    );
+  }
+
+  const queryParams = [
+    `limit: ${limit}`,
+    `offset: ${offset}`,
+    `where: {${whereQueryParams}}`,
+  ];
+
   return pokemonApiClient<BasePokemonCollectionData>(`{
-    pokemon: pokemon_v2_pokemon(limit: ${limit}, offset: ${offset}) {
+    pokemon: pokemon_v2_pokemon(${queryParams}) {
       id
       name
       order

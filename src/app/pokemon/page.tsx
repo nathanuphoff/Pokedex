@@ -1,12 +1,11 @@
 import { Heading } from '@/components/atoms/heading/Heading';
 import { PageSection } from '@/components/layout/page-section/PageSection';
 import { PokemonGrid } from '@/components/organisms/pokemon-grid/PokemonGrid';
-import { getBasePokemonCollection } from '@/services/pokeapi/getPokemonCollection';
 import type { ReactElement } from 'react';
 
-export default async function PokemonIndex(): Promise<ReactElement> {
-  const { pokemon } = await getBasePokemonCollection();
+const firstGenPokemonCount = 151;
 
+export default async function PokemonIndex(): Promise<ReactElement> {
   return (
     <>
       <PageSection as='header'>
@@ -14,7 +13,7 @@ export default async function PokemonIndex(): Promise<ReactElement> {
       </PageSection>
 
       <PageSection>
-        <PokemonGrid pokemon={pokemon} />
+        <PokemonGrid params={{ limit: firstGenPokemonCount }} />
       </PageSection>
     </>
   );

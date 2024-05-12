@@ -1,7 +1,11 @@
 import { PokemonImage } from '@/components/atoms/pokemon-image/PokemonImage';
 import { Grid } from '@/components/layout/grid/Grid';
 import { RoutePath } from '@/data/route-path';
-import { PokemonSummary } from '@/services/pokeapi';
+import {
+  PokemonCollectionParams,
+  PokemonSummary,
+  getPokemonSummaryCollection,
+} from '@/services/pokeapi';
 import colorVariables from '@/styles/pokemon-types.module.css';
 import { formatApiResourceName } from '@/utils/formatting';
 import { formatRoutePath } from '@/utils/router';
@@ -13,10 +17,13 @@ import styles from './PokemonGrid.module.css';
 const pokemonGridItemWidth = 192;
 
 type PokemonGridProps = {
-  pokemon: Array<PokemonSummary>;
+  params?: PokemonCollectionParams;
 };
 
-export function PokemonGrid({ pokemon }: PokemonGridProps): ReactElement {
+export async function PokemonGrid({
+  params,
+}: PokemonGridProps): Promise<ReactElement> {
+  const { pokemon } = await getPokemonSummaryCollection(params);
   return (
     <Grid columnWidth={pokemonGridItemWidth}>
       {pokemon.map((item) => {
