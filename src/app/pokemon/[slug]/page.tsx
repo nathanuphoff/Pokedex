@@ -25,24 +25,31 @@ export default async function PokemonDetail({
   const type = pokemon.types.at(0)?.type.name;
 
   return (
-    <div className={classNames(styles.wrapper, type && colorVariables[type])}>
-      <PageSection as='header' className={styles.header}>
-        <PokemonImage pokemon={pokemon} size='large' />
+    <>
+      <div className={classNames(styles.wrapper, type && colorVariables[type])}>
+        <PageSection as='header' className={styles.header}>
+          <PokemonImage pokemon={pokemon} size='large' />
 
-        <div>
-          <Heading as='h2' className={styles.subheading}>
-            #{pokemon.order}
-          </Heading>
+          <div>
+            <Heading as='h2' variant='h4' className={styles.subheading}>
+              #{pokemon.order}
+            </Heading>
 
-          <Heading>{formatApiResourceName(pokemon.name)}</Heading>
-        </div>
+            <Heading>{formatApiResourceName(pokemon.name)}</Heading>
+          </div>
 
-        <TagList>
-          {pokemon.types.map((item) => (
-            <PokemonTypeTag key={item.type.id} type={item.type} />
-          ))}
-        </TagList>
+          <TagList>
+            {pokemon.types.map((item) => (
+              <PokemonTypeTag key={item.type.id} type={item.type} />
+            ))}
+          </TagList>
+        </PageSection>
+      </div>
+
+      <PageSection>
+        <Heading variant='h3'>Stats</Heading>
+        <p>Coming soon&trade;</p>
       </PageSection>
-    </div>
+    </>
   );
 }
