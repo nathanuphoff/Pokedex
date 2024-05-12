@@ -9,6 +9,9 @@ import { formatApiResourceName } from '@/utils/formatting';
 import classNames from 'classnames';
 import { type ReactElement } from 'react';
 import styles from './page.module.css';
+import Link from 'next/link';
+import { formatRoutePath } from '@/utils/router';
+import { RoutePath } from '@/data/route-path';
 
 type PokemonDetailParams = {
   slug: string;
@@ -40,7 +43,14 @@ export default async function PokemonDetail({
 
           <TagList>
             {pokemon.types.map((item) => (
-              <PokemonTypeTag key={item.type.id} type={item.type} />
+              <Link
+                key={item.type.id}
+                href={formatRoutePath(RoutePath.PokemonTypeDetail, {
+                  slug: item.type.name,
+                })}
+              >
+                <PokemonTypeTag type={item.type} />
+              </Link>
             ))}
           </TagList>
         </PageSection>

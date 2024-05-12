@@ -8,11 +8,11 @@
 }
 
 .h2 {
-  font-size: calc(1vw + 2rem);
+  font-size: calc(1vw + 1.5rem);
 }
 
 .h3 {
-  font-size: calc(0.5vw + 1.5rem);
+  font-size: calc(1vw + 1rem);
 }
 
 .h4 {

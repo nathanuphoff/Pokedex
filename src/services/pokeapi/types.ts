@@ -1,10 +1,14 @@
-export type BasePokemonEntry = {
+export type PokemonResourceIdentifier = {
   id: number;
   name: string;
+};
+
+// Pokémon
+export type BasePokemonEntry = PokemonResourceIdentifier & {
   order: number;
   sprites: Array<PokemonSpritesEntry>;
   types: Array<{
-    type: BasePokemonTypeEntry;
+    type: PokemonResourceIdentifier;
   }>;
 };
 
@@ -12,7 +16,10 @@ export type PokemonSpritesEntry = {
   frontDefault: string;
 };
 
-export type BasePokemonTypeEntry = {
-  id: string;
-  name: string;
+// Pokémon types
+export type PokemonTypeSummary = PokemonResourceIdentifier & {
+  displayNames: Array<{
+    value: string;
+    languageId: number;
+  }>;
 };

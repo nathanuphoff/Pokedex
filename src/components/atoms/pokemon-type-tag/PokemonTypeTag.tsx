@@ -1,4 +1,4 @@
-import { BasePokemonTypeEntry } from '@/services/pokeapi';
+import type { PokemonResourceIdentifier } from '@/services/pokeapi';
 import colorVariables from '@/styles/pokemon-types.module.css';
 import { formatApiResourceName } from '@/utils/formatting';
 import classNames from 'classnames';
@@ -7,7 +7,7 @@ import { Tag } from '../tag/Tag';
 import styles from './PokemonTypeTag.module.css';
 
 type PokemonTypeTagProps = {
-  type: BasePokemonTypeEntry;
+  type: PokemonResourceIdentifier;
 };
 
 export function PokemonTypeTag({ type }: PokemonTypeTagProps): ReactElement {
