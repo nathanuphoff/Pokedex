@@ -1,4 +1,4 @@
-import { BasePokemonEntry } from '.';
+import { PokemonSummary } from '.';
 import { pokemonApiClient } from './client';
 
 export const defaultPokemonCollectionLimit = 151;
@@ -8,15 +8,15 @@ export type PokemonCollectionParams = {
   offset?: number;
 };
 
-export type PokemonCollectionData = {
-  pokemon: Array<BasePokemonEntry>;
+export type BasePokemonCollectionData = {
+  pokemon: Array<PokemonSummary>;
 };
 
-export async function getBasePokemonCollection({
+export async function getPokemonSummaryCollection({
   limit = defaultPokemonCollectionLimit,
   offset = 0,
 }: PokemonCollectionParams = {}) {
-  return pokemonApiClient<PokemonCollectionData>(`{
+  return pokemonApiClient<BasePokemonCollectionData>(`{
     pokemon: pokemon_v2_pokemon(limit: ${limit}, offset: ${offset}) {
       id
       name

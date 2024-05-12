@@ -4,15 +4,15 @@ export type PokemonResourceIdentifier = {
 };
 
 // Pokémon
-export type BasePokemonEntry = PokemonResourceIdentifier & {
+export type PokemonSummary = PokemonResourceIdentifier & {
   order: number;
-  sprites: Array<PokemonSpritesEntry>;
+  sprites: Array<PokemonSpriteImages>;
   types: Array<{
     type: PokemonResourceIdentifier;
   }>;
 };
 
-export type PokemonSpritesEntry = {
+export type PokemonSpriteImages = {
   frontDefault: string;
 };
 

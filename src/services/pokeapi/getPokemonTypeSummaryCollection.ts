@@ -1,12 +1,12 @@
 import { PokemonTypeSummary } from '.';
 import { pokemonApiClient } from './client';
 
-export type BasePokemonCollectionData = {
+export type PokemonTypeSummaryCollectionData = {
   types: Array<PokemonTypeSummary>;
 };
 
-export async function getPokemonTypeSummaryCollection(): Promise<BasePokemonCollectionData> {
-  return pokemonApiClient<BasePokemonCollectionData>(
+export async function getPokemonTypeSummaryCollection(): Promise<PokemonTypeSummaryCollectionData> {
+  return pokemonApiClient<PokemonTypeSummaryCollectionData>(
     `{
       types: pokemon_v2_type(where: {generation_id: {_eq: 1}}) {
         id

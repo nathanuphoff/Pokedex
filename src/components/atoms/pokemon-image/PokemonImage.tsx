@@ -1,4 +1,4 @@
-import type { BasePokemonEntry } from '@/services/pokeapi';
+import type { PokemonSummary } from '@/services/pokeapi';
 import { formatApiResourceName } from '@/utils/formatting';
 import styles from './PokemonImage.module.css';
 
@@ -10,7 +10,7 @@ const pokemonImageScaleMap = {
 } as const;
 
 type PokemonImageProps = {
-  pokemon: Pick<BasePokemonEntry, 'sprites' | 'name'>;
+  pokemon: Pick<PokemonSummary, 'sprites' | 'name'>;
   size?: keyof typeof pokemonImageScaleMap;
 };
 

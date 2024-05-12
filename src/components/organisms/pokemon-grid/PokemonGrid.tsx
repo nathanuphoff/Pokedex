@@ -1,7 +1,7 @@
 import { PokemonImage } from '@/components/atoms/pokemon-image/PokemonImage';
 import { Grid } from '@/components/layout/grid/Grid';
 import { RoutePath } from '@/data/route-path';
-import { BasePokemonEntry } from '@/services/pokeapi';
+import { PokemonSummary } from '@/services/pokeapi';
 import colorVariables from '@/styles/pokemon-types.module.css';
 import { formatApiResourceName } from '@/utils/formatting';
 import { formatRoutePath } from '@/utils/router';
@@ -13,7 +13,7 @@ import styles from './PokemonGrid.module.css';
 const pokemonGridItemWidth = 192;
 
 type PokemonGridProps = {
-  pokemon: Array<BasePokemonEntry>;
+  pokemon: Array<PokemonSummary>;
 };
 
 export function PokemonGrid({ pokemon }: PokemonGridProps): ReactElement {

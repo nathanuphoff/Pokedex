@@ -3,7 +3,6 @@ import { PokemonImage } from '@/components/atoms/pokemon-image/PokemonImage';
 import { PokemonTypeTag } from '@/components/atoms/pokemon-type-tag/PokemonTypeTag';
 import { PageSection } from '@/components/layout/page-section/PageSection';
 import { TagList } from '@/components/molecules/tag-list/TagList';
-import { findBasePokemonByName } from '@/services/pokeapi';
 import colorVariables from '@/styles/pokemon-types.module.css';
 import { formatApiResourceName } from '@/utils/formatting';
 import classNames from 'classnames';
@@ -12,6 +11,7 @@ import styles from './page.module.css';
 import Link from 'next/link';
 import { formatRoutePath } from '@/utils/router';
 import { RoutePath } from '@/data/route-path';
+import { findPokemonSummaryByName } from '@/services/pokeapi';
 
 type PokemonDetailParams = {
   slug: string;
@@ -24,7 +24,7 @@ type PokemonDetailProps = {
 export default async function PokemonDetail({
   params,
 }: PokemonDetailProps): Promise<ReactElement> {
-  const pokemon = await findBasePokemonByName(params.slug);
+  const pokemon = await findPokemonSummaryByName(params.slug);
   const type = pokemon.types.at(0)?.type.name;
 
   return (

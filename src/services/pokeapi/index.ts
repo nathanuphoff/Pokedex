@@ -1,3 +1,4 @@
-export * from './findPokemonDetailsById';
-export * from './getPokemonCollection';
 export * from './types';
+export * from './findBasePokemonByName';
+export * from './getBasePokemonCollection';
+export * from './getPokemonTypeSummaryCollection';

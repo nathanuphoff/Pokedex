@@ -1,19 +1,27 @@
 import { pokemonApiClient } from './client';
-import type { PokemonSummaryEntry } from './types';
+import { PokemonSummary } from './types';
 
-type PokemonSummaryData = {
-  matches: Array<PokemonSummaryEntry>;
+type PokemonDetailsData = {
+  matches: Array<PokemonSummary>;
 };
 
 export async function findPokemonSummaryByName(
   name: string,
-): Promise<PokemonSummaryEntry> {
-  const { matches = [] } = await pokemonApiClient<PokemonSummaryData>(`{
+): Promise<PokemonSummary> {
+  const { matches = [] } = await pokemonApiClient<PokemonDetailsData>(`{
     matches: pokemon_v2_pokemon(limit: 1, where: {name: {_eq: ${name}}}) {
       id
       name
-      weight
-      height
+      order
+      types: pokemon_v2_pokemontypes {
+        type: pokemon_v2_type {
+          id
+          name
+        }
+      }
+      sprites: pokemon_v2_pokemonsprites {
+        frontDefault: sprites(path: "front_default")
+      }
     }
   }`);
 
