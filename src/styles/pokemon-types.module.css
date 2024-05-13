@@ -1,5 +1,4 @@
 /* Pokemon types colors sorted by hue */
-
 .normal {
   --pokemon-type-hue: 30;
   --pokemon-type-main: hsl(var(--pokemon-type-hue), 20%, 60%);
