@@ -1,15 +1,14 @@
 import { Heading } from '@/components/atoms/heading/Heading';
+import { PokemonTypeBackdrop } from '@/components/atoms/pokemon-type-backdrop/PokemonTypeBackdrop';
 import { PageSection } from '@/components/layout/page-section/PageSection';
+import { PokemonGrid } from '@/components/organisms/pokemon-grid/PokemonGrid';
+import { RoutePath } from '@/data/route-path';
 import { findPokemonTypeSummaryByName } from '@/services/pokeapi/findPokemonTypeSummaryByName';
-import colorVariables from '@/styles/pokemon-types.module.css';
-import classNames from 'classnames';
+import { formatRoutePath } from '@/utils/router';
+import Link from 'next/link';
 import { ReactElement } from 'react';
 import styles from './page.module.css';
-import Link from 'next/link';
-import { formatRoutePath } from '@/utils/router';
-import { RoutePath } from '@/data/route-path';
-import { PokemonGrid } from '@/components/organisms/pokemon-grid/PokemonGrid';
-import { PokemonTypeBackdrop } from '@/components/atoms/pokemon-type-backdrop/PokemonTypeBackdrop';
+import { getPokemonTypeSummaryCollection } from '@/services/pokeapi';
 
 type PokemonDetailParams = {
   slug: string;
@@ -44,4 +43,12 @@ export default async function PokemonTypeDetails({
       </PageSection>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const { types } = await getPokemonTypeSummaryCollection();
+
+  return types.map((type) => ({
+    slug: type.name,
+  }));
 }

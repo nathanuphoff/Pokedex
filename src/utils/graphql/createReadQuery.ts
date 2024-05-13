@@ -22,8 +22,6 @@ export function createReadQueryClient(endpoint: string) {
 
     const responseData = await response.json();
 
-    console.log('x', query, responseData);
-
     return responseData.data;
   };
 }

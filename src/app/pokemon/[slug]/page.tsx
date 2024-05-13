@@ -5,7 +5,10 @@ import { PokemonTypeTag } from '@/components/atoms/pokemon-type-tag/PokemonTypeT
 import { PageSection } from '@/components/layout/page-section/PageSection';
 import { TagList } from '@/components/molecules/tag-list/TagList';
 import { RoutePath } from '@/data/route-path';
-import { findPokemonSummaryByName } from '@/services/pokeapi';
+import {
+  findPokemonSummaryByName,
+  getPokemonSummaryCollection,
+} from '@/services/pokeapi';
 import { formatApiResourceName } from '@/utils/formatting';
 import { formatRoutePath } from '@/utils/router';
 import classNames from 'classnames';
@@ -62,4 +65,12 @@ export default async function PokemonDetail({
       </PageSection>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const { pokemon } = await getPokemonSummaryCollection();
+
+  return pokemon.map((item) => ({
+    slug: item.name,
+  }));
 }
