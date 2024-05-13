@@ -1,4 +1,12 @@
 /* Pokemon types colors sorted by hue */
+.backdrop {
+  --pokemon-type-color-dark: hsl(var(--pokemon-type-hue), 30%, 30%);
+  --foreground-rgb: 255, 255, 255;
+
+  color: rgb(var(--foreground-rgb));
+  background-color: var(--pokemon-type-main, #ddd); /* fallback */
+}
+
 .normal {
   --pokemon-type-hue: 30;
   --pokemon-type-main: hsl(var(--pokemon-type-hue), 20%, 60%);

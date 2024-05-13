@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { formatRoutePath } from '@/utils/router';
 import { RoutePath } from '@/data/route-path';
 import { PokemonGrid } from '@/components/organisms/pokemon-grid/PokemonGrid';
+import { PokemonTypeBackdrop } from '@/components/atoms/pokemon-type-backdrop/PokemonTypeBackdrop';
 
 type PokemonDetailParams = {
   slug: string;
@@ -25,7 +26,7 @@ export default async function PokemonTypeDetails({
 
   return (
     <>
-      <div className={classNames(styles.header, colorVariables[type.name])}>
+      <PokemonTypeBackdrop type={type}>
         <PageSection as='header'>
           <Link
             className={styles.link}
@@ -36,7 +37,7 @@ export default async function PokemonTypeDetails({
 
           <Heading>{type.name}</Heading>
         </PageSection>
-      </div>
+      </PokemonTypeBackdrop>
 
       <PageSection>
         <PokemonGrid params={{ type: type }} />

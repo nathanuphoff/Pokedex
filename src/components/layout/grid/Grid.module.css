@@ -1,11 +1,11 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--column-width), auto));
+  grid-template-columns: repeat(auto-fill, minmax(var(--column-width), 1fr));
   gap: 3rem 2rem;
 }
 
 .item {
   list-style: none;
-  width: fit-content;
+  width: 100%;
 }
 

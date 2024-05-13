@@ -1,17 +1,17 @@
 import { Heading } from '@/components/atoms/heading/Heading';
 import { PokemonImage } from '@/components/atoms/pokemon-image/PokemonImage';
+import { PokemonTypeBackdrop } from '@/components/atoms/pokemon-type-backdrop/PokemonTypeBackdrop';
 import { PokemonTypeTag } from '@/components/atoms/pokemon-type-tag/PokemonTypeTag';
 import { PageSection } from '@/components/layout/page-section/PageSection';
 import { TagList } from '@/components/molecules/tag-list/TagList';
-import colorVariables from '@/styles/pokemon-types.module.css';
-import { formatApiResourceName } from '@/utils/formatting';
-import classNames from 'classnames';
-import { type ReactElement } from 'react';
-import styles from './page.module.css';
-import Link from 'next/link';
-import { formatRoutePath } from '@/utils/router';
 import { RoutePath } from '@/data/route-path';
 import { findPokemonSummaryByName } from '@/services/pokeapi';
+import { formatApiResourceName } from '@/utils/formatting';
+import { formatRoutePath } from '@/utils/router';
+import classNames from 'classnames';
+import Link from 'next/link';
+import { type ReactElement } from 'react';
+import styles from './page.module.css';
 
 type PokemonDetailParams = {
   slug: string;
@@ -25,11 +25,11 @@ export default async function PokemonDetail({
   params,
 }: PokemonDetailProps): Promise<ReactElement> {
   const pokemon = await findPokemonSummaryByName(params.slug);
-  const type = pokemon.types.at(0)?.type.name;
+  const type = pokemon.types.at(0)?.type ?? null;
 
   return (
     <>
-      <div className={classNames(styles.wrapper, type && colorVariables[type])}>
+      <PokemonTypeBackdrop type={type} className={classNames(styles.wrapper)}>
         <PageSection as='header' className={styles.header}>
           <PokemonImage pokemon={pokemon} size='large' />
 
@@ -54,7 +54,7 @@ export default async function PokemonDetail({
             ))}
           </TagList>
         </PageSection>
-      </div>
+      </PokemonTypeBackdrop>
 
       <PageSection>
         <Heading variant='h3'>Stats</Heading>
